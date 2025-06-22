@@ -1,5 +1,4 @@
 {
-  "include": ["."],
   "typeCheckingMode": "strict",
   "reportUnusedFunction": "warning",
   "reportMissingImports": true,
