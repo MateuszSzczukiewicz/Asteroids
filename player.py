@@ -1,4 +1,3 @@
-from typing import Any
 import pygame
 from circleshape import CircleShape
 from constants import PLAYER_RADIUS, PLAYER_SPEED, PLAYER_TURN_SPEED
@@ -10,9 +9,7 @@ class Player(CircleShape):
     radius: int | float
     rotation: float
 
-    def __init__(
-        self, x: int | float, y: int | float, *groups: pygame.sprite.AbstractGroup[Any]
-    ):
+    def __init__(self, x: int | float, y: int | float, *groups):
         super().__init__(x, y, PLAYER_RADIUS, *groups)
         self.rotation = 0.0
 

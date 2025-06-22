@@ -1,5 +1,4 @@
 {
-  "typeCheckingMode": "strict",
   "reportUnusedFunction": "warning",
   "reportMissingImports": true,
   "reportMissingTypeStubs": true,
