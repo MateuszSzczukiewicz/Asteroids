@@ -1,7 +1,6 @@
 import pygame
 import sys
 
-from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from player import Player
@@ -17,9 +16,9 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
-    asteroids: pygame.sprite.Group[Asteroid] = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
-    player = Player(x, y, updatable, drawable)
+    player = Player(x, y, drawable, updatable)
     AsteroidField(asteroids, drawable, updatable)
 
     while True:
@@ -37,8 +36,8 @@ def main():
         for a in asteroids:
             if a.check_collision(player):
                 print("Game Over")
-                sys.exit()
 
+                sys.exit()
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
