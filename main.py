@@ -32,6 +32,7 @@ def main():
             d.draw(screen)
 
         updatable.update(dt)
+        player.timer -= dt
 
         for a in asteroids:
             if a.check_collision(player):
