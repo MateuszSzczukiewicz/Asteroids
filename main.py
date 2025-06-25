@@ -17,8 +17,9 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    bullets = pygame.sprite.Group()
 
-    player = Player(x, y, drawable, updatable)
+    player = Player(x, y, drawable, updatable, bullets)
     AsteroidField(asteroids, drawable, updatable)
 
     while True:
@@ -35,6 +36,11 @@ def main():
         player.timer -= dt
 
         for a in asteroids:
+            for b in bullets:
+                if a.check_collision(b):
+                    a.kill()
+                    b.kill()
+
             if a.check_collision(player):
                 print("Game Over")
 

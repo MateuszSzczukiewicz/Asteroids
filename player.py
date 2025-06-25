@@ -18,10 +18,11 @@ class Player(CircleShape):
     rotation: float
     timer: float
 
-    def __init__(self, x: int | float, y: int | float, *groups):
-        super().__init__(x, y, PLAYER_RADIUS, *groups)
+    def __init__(self, x: int | float, y: int | float, drawable, updatable, bullets):
+        super().__init__(x, y, PLAYER_RADIUS, drawable, updatable)
         self.rotation = 0.0
         self.timer = PLAYER_SHOOT_COOLDOWN
+        self.bullets = bullets
 
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -61,7 +62,7 @@ class Player(CircleShape):
 
     def shoot(self):
         if not self.timer > 0:
-            shot = Shot(self.position, SHOT_RADIUS, *self.groups())
+            shot = Shot(self.position, SHOT_RADIUS, self.bullets, *self.groups())
             forward = pygame.Vector2(0, 1).rotate(self.rotation)
             velocity = forward * PLAYER_SHOT_SPEED
             shot.velocity = velocity
