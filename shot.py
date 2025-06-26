@@ -4,6 +4,8 @@ from circleshape import CircleShape
 
 
 class Shot(CircleShape):
+    position: pygame.Vector2
+
     def __init__(self, position: pygame.Vector2, radius: int, *groups):
         super().__init__(position.x, position.y, radius, *groups)
 

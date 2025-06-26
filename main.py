@@ -38,7 +38,7 @@ def main():
         for a in asteroids:
             for b in bullets:
                 if a.check_collision(b):
-                    a.kill()
+                    a.split()
                     b.kill()
 
             if a.check_collision(player):
